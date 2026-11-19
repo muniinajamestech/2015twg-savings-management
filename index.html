@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>2015TEAMWORK Savings Manager</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- ================================= -->
+    <!-- SIDEBAR / NAVIGATION -->
+    <!-- ================================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            <h2>2015TEAMWORK</h2>
+            <p>Savings Manager</p>
+        </div>
+
+        <nav class="navigation">
+
+            <button class="nav-btn active" data-page="dashboardPage">
+                🏠 Dashboard
+            </button>
+
+            <button class="nav-btn" data-page="membersPage">
+                👥 Members
+            </button>
+
+            <button class="nav-btn" data-page="savingsPage">
+                💰 Savings
+            </button>
+
+            <button class="nav-btn" data-page="welfarePage">
+                ❤️ Welfare
+            </button>
+
+            <button class="nav-btn" data-page="loansPage">
+                🏦 Loans
+            </button>
+
+            <button class="nav-btn" data-page="expensesPage">
+    Expenses
+</button>
+
+            <button class="nav-btn" data-page="reportsPage">
+                📊 Reports
+            </button>
+
+           <button class="nav-btn" data-page="interestPage">
+    💵 Interest Sharing
+</button> 
+
+        </nav>
+
+        <div class="sidebar-footer">
+            <p>Teamwork & Trust</p>
+            <small>Transparency & Accountability</small>
+        </div>
+
+    </aside>
+
+
+    <!-- ================================= -->
+    <!-- MAIN CONTENT -->
+    <!-- ================================= -->
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div>
+                <h1 id="pageTitle">Dashboard</h1>
+                <p>Welcome to 2015TEAMWORK Savings Manager</p>
+            </div>
+
+            <div class="system-date">
+                <span id="currentDate"></span>
+            </div>
+
+        </header>
+
+
+        <!-- ================================= -->
+        <!-- 1. DASHBOARD PAGE -->
+        <!-- ================================= -->
+
+        <section id="dashboardPage" class="page active">
+
+            <h2>Group Overview</h2>
+
+            <div class="dashboard-cards">
+
+                <div class="card">
+                    <h3>Total Members</h3>
+                    <p id="totalMembers">0</p>
+                </div>
+
+                <div class="card">
+                    <h3>Total Savings</h3>
+                    <p id="totalSavings">UGX 0</p>
+                </div>
+
+                <div class="card">
+                    <h3>Total Welfare</h3>
+                    <p id="totalWelfare">UGX 0</p>
+                </div>
+
+                <div class="card">
+                    <h3>Active Loans</h3>
+                    <p id="activeLoans">0</p>
+                </div>
+
+                <div class="card">
+                    <h3>Outstanding Loans</h3>
+                    <p id="outstandingLoans">UGX 0</p>
+                </div>
+
+                <div class="card">
+                    <h3>Total Loan Interest</h3>
+                    <p id="totalInterest">UGX 0</p>
+                </div>
+
+            </div>
+
+            <div class="dashboard-section">
+
+                <h3>System Information</h3>
+
+                <p>
+                    Welcome to the 2015TEAMWORK Savings Manager.
+                    This system helps manage members, savings,
+                    welfare contributions, loans and financial reports.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================= -->
+        <!-- 2. MEMBERS PAGE -->
+        <!-- ================================= -->
+
+        <section id="membersPage" class="page">
+
+            <h2>Members Management</h2>
+
+            <div class="form-container">
+
+                <h3>Register New Member</h3>
+
+                <form id="memberForm">
+
+                    <input
+                        type="text"
+                        id="memberName"
+                        placeholder="Full Name"
+                        required
+                    >
+
+                    <input
+                        type="tel"
+                        id="memberPhone"
+                        placeholder="Phone Number"
+                        required
+                    >
+
+                    <input
+                        type="date"
+                        id="memberDate"
+                        required
+                    >
+
+                    <button type="submit" id="memberSubmitBtn">
+                        Register Member
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            <div class="table-container">
+
+                <h3>Registered Members</h3>
+
+                <input
+                    type="text"
+                    id="memberSearch"
+                    placeholder="Search member by name or number..."
+                >
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Member Number</th>
+                            <th>Full Name</th>
+                            <th>Phone Number</th>
+                            <th>Date Joined</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="membersTableBody">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================= -->
+        <!-- 3. SAVINGS PAGE -->
+        <!-- ================================= -->
+
+        <section id="savingsPage" class="page">
+
+            <h2>Savings Management</h2>
+
+            <div class="form-container">
+
+                <h3>Record Member Savings</h3>
+
+                <form id="savingsForm">
+
+                    <select id="savingsMember" required>
+                        <option value="">Select Member</option>
+                    </select>
+
+                    <input
+                        type="date"
+                        id="savingsDate"
+                        required
+                    >
+
+                    <input
+                        type="number"
+                        id="savingsAmount"
+                        placeholder="Amount in UGX"
+                        min="1"
+                        required
+                    >
+
+                    <input
+                        type="text"
+                        id="savingsDescription"
+                        placeholder="Description / Month"
+                    >
+
+                    <button type="submit">
+                        Record Savings
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            <div class="table-container">
+
+                <h3>Savings Records</h3>
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Member Number</th>
+                            <th>Member Name</th>
+                            <th>Date</th>
+                            <th>Amount (UGX)</th>
+                            <th>Description</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="savingsTableBody">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <div class="statement-container">
+
+                <h3>Individual Member Statement</h3>
+
+                <select id="statementMember">
+                    <option value="">Select Member</option>
+                </select>
+
+                <button type="button" id="viewStatementBtn">
+                    View Statement
+                </button>
+
+                <button type="button" id="downloadStatementBtn">
+                    Download Statement
+                </button>
+
+                <div id="memberSavingsStatement">
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================= -->
+        <!-- 4. WELFARE PAGE -->
+        <!-- ================================= -->
+
+        <section id="welfarePage" class="page">
+
+            <h2>Welfare Management</h2>
+
+            <div class="form-container">
+
+                <h3>Record Welfare Contribution</h3>
+
+                <form id="welfareForm">
+
+                    <select id="welfareMember" required>
+                        <option value="">Select Member</option>
+                    </select>
+
+                    <input
+                        type="date"
+                        id="welfareDate"
+                        required
+                    >
+
+                    <input
+                        type="number"
+                        id="welfareAmount"
+                        placeholder="Amount in UGX"
+                        min="1"
+                        required
+                    >
+
+                    <input
+                        type="text"
+                        id="welfareDescription"
+                        placeholder="Description"
+                    >
+
+                    <button type="submit">
+                        Record Welfare
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            <div class="table-container">
+
+                <h3>Welfare Records</h3>
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Member Number</th>
+                            <th>Member Name</th>
+                            <th>Date</th>
+                            <th>Amount (UGX)</th>
+                            <th>Description</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="welfareTableBody">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================= -->
+        <!-- 5. LOANS PAGE -->
+        <!-- ================================= -->
+
+        <section id="loansPage" class="page">
+
+            <h2>Loans Management</h2>
+
+            <div class="form-container">
+
+                <h3>Issue New Loan</h3>
+
+                <form id="loanForm">
+
+                    <select id="loanMember" required>
+                        <option value="">Select Member</option>
+                    </select>
+
+                    <input
+                        type="date"
+                        id="loanDate"
+                        required
+                    >
+
+                    <input
+                        type="number"
+                        id="loanPrincipal"
+                        placeholder="Loan Amount in UGX"
+                        min="1"
+                        required
+                    >
+
+                    <button type="submit">
+                        Issue Loan
+                    </button>
+
+                </form>
+
+                <p>
+                    Loan interest rate: <strong>10%</strong>
+                </p>
+
+                <p>
+                    Loan repayment period: <strong>3 Months</strong>
+                </p>
+
+            </div>
+
+
+            <div class="table-container">
+
+                <h3>Loan Records</h3>
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Loan Number</th>
+                            <th>Member Number</th>
+                            <th>Principal</th>
+                            <th>Interest</th>
+                            <th>Total Payable</th>
+                            <th>Amount Paid</th>
+                            <th>Balance</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="loansTableBody">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <div class="form-container">
+
+                <h3>Record Loan Repayment</h3>
+
+                <form id="repaymentForm">
+
+                    <select id="repaymentLoan" required>
+                        <option value="">Select Loan</option>
+                    </select>
+
+                    <input
+                        type="date"
+                        id="repaymentDate"
+                        required
+                    >
+
+                    <input
+                        type="number"
+                        id="repaymentAmount"
+                        placeholder="Repayment Amount in UGX"
+                        min="1"
+                        required
+                    >
+
+                    <button type="submit">
+                        Record Repayment
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+
+            <!-- EXPENSES PAGE -->
+
+<section id="expensesPage" class="page">
+
+    <h2>Group Expenses</h2>
+
+    <div class="card">
+
+        <h3>Record New Expense</h3>
+
+        <form id="expenseForm">
+
+            <label>Expense Date</label>
+            <input type="date" id="expenseDate" required>
+
+            <label>Expense Category</label>
+            <select id="expenseCategory" required>
+                <option value="">Select Category</option>
+                <option value="Sharing Sending Charge">Sharing Sending Charge</option>
+                <option value="Loan Sending Charges">Loan Sending Charges</option>
+                <option value="Communication">Communication</option>
+                <option value="Welfare Activities">Welfare Activities</option>
+                <option value="Transport">Transport</option>
+                <option value="Website Mentenance">Website Mentenance</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <label>Description</label>
+            <input type="text" id="expenseDescription" required>
+
+            <label>Amount (UGX)</label>
+            <input type="number" id="expenseAmount" min="1" required>
+
+            <label>Received By</label>
+            <input type="text" id="expenseReceiver">
+
+            <label>Receipt / Reference Number</label>
+            <input type="text" id="expenseReference">
+
+            <button type="submit">Record Expense</button>
+
+        </form>
+
+    </div>
+
+
+    <div class="card">
+
+        <h3>Expense Summary</h3>
+
+        <h2 id="totalExpenses">UGX 0</h2>
+
+        <p>Total Group Expenses</p>
+
+    </div>
+
+
+    <div class="card">
+
+        <h3>Expenses Register</h3>
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Category</th>
+                    <th>Description</th>
+                    <th>Amount</th>
+                    <th>Received By</th>
+                    <th>Reference</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody id="expensesTableBody"></tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+
+        <!-- ================================= -->
+        <!-- 6. REPORTS PAGE -->
+        <!-- ================================= -->
+
+        <section id="reportsPage" class="page">
+
+            <h2>Financial Reports</h2>
+
+            <div class="dashboard-section">
+
+                <h3>Group Financial Summary</h3>
+
+                <div id="financialSummary">
+
+                    <p>Total Members: <strong id="reportMembers">0</strong></p>
+
+                    <p>Total Savings: <strong id="reportSavings">UGX 0</strong></p>
+
+                    <p>Total Welfare: <strong id="reportWelfare">UGX 0</strong></p>
+
+                    <p>Total Loans Issued: <strong id="reportLoans">UGX 0</strong></p>
+
+                    <p>Outstanding Loans: <strong id="reportOutstanding">UGX 0</strong></p>
+
+                    <p>Loan Interest: <strong id="reportInterest">UGX 0</strong></p>
+
+                </div>
+
+                <button type="button" id="printReportBtn">
+                    Print Financial Report
+                </button>
+
+            </div>
+
+        </section>
+
+<!-- ================================= -->
+<!-- 7. INTEREST SHARING PAGE -->
+<!-- ================================= -->
+
+<section id="interestPage" class="page">
+
+    <h2>Interest Sharing</h2>
+
+    <div class="form-container">
+
+        <h3>Interest Distribution</h3>
+
+        <label>Total Interest Available (UGX)</label>
+
+        <input
+            type="number"
+            id="interestAvailable"
+            placeholder="Enter total interest earned"
+            min="0"
+        >
+
+        <button type="button" id="calculateInterestBtn">
+            Calculate Members' Shares
+        </button>
+
+    </div>
+
+    <div class="dashboard-cards">
+
+        <div class="card">
+            <h3>Total Group Savings</h3>
+            <p id="sharingTotalSavings">UGX 0</p>
+        </div>
+
+        <div class="card">
+            <h3>Total Interest</h3>
+            <p id="sharingTotalInterest">UGX 0</p>
+        </div>
+
+        <div class="card">
+            <h3>Members Sharing</h3>
+            <p id="sharingMembers">0</p>
+        </div>
+
+    </div>
+
+    <div class="table-container">
+
+        <h3>Individual Interest Distribution</h3>
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>Member Number</th>
+                    <th>Member Name</th>
+                    <th>Total Savings</th>
+                    <th>Contribution %</th>
+                    <th>Interest Share</th>
+                    <th>Total Payable</th>
+                </tr>
+            </thead>
+
+            <tbody id="interestTableBody">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <div class="dashboard-section">
+
+        <h3>Distribution Summary</h3>
+
+        <p>Total Savings: <strong id="summarySavings">UGX 0</strong></p>
+
+        <p>Total Interest: <strong id="summaryInterest">UGX 0</strong></p>
+
+        <p>Interest Distributed: <strong id="summaryDistributed">UGX 0</strong></p>
+
+    </div>
+
+    <button type="button" id="printInterestBtn">
+        Print Interest Sharing Report
+    </button>
+
+</section>
+        <!-- ================================= -->
+        <!-- FOOTER -->
+        <!-- ================================= -->
+
+        <footer class="main-footer">
+
+            <p>
+                2015TEAMWORK Savings Group
+            </p>
+
+            <small>
+                Teamwork & Trust | Transparency & Accountability
+            </small>
+
+        </footer>
+
+    </main>
+
+</div>
+
+
+<!-- ================================= -->
+<!-- JAVASCRIPT FILES -->
+<!-- ================================= -->
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
