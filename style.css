@@ -559,3 +559,92 @@ td button {
     }
 
 }
+
+/* =====================================
+   2015TEAMWORK LOGIN SCREEN
+===================================== */
+
+.auth-screen {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #12372a, #436850);
+    padding: 20px;
+}
+
+.login-box {
+    background: #ffffff;
+    width: 100%;
+    max-width: 420px;
+    padding: 40px 30px;
+    border-radius: 14px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.login-box h1 {
+    color: #12372a;
+    font-size: 27px;
+    margin-bottom: 5px;
+}
+
+.login-box > p:first-of-type {
+    color: #777;
+    margin-bottom: 30px;
+}
+
+.login-box h2 {
+    color: #333;
+    margin-bottom: 25px;
+}
+
+.login-box form {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.login-box label {
+    margin-bottom: 7px;
+    font-weight: 600;
+    color: #333;
+}
+
+.login-box input {
+    padding: 13px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 15px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.login-box form button {
+    background: #12372a;
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 7px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.login-box form button:hover {
+    background: #436850;
+}
+
+#forgotPasswordBtn {
+    background: none;
+    border: none;
+    color: #12372a;
+    cursor: pointer;
+    margin-top: 18px;
+}
+
+#loginMessage {
+    margin-top: 15px;
+    font-size: 14px;
+}
