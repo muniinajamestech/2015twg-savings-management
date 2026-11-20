@@ -3445,6 +3445,37 @@ resetPasswordForm.addEventListener("submit", async function(event) {
 });
 
 // ======================================================
+// FORGOT PASSWORD FUNCTION
+// ======================================================
+
+const forgotPasswordBtn = document.getElementById("forgotPasswordBtn");
+
+if (forgotPasswordBtn) {
+
+    forgotPasswordBtn.addEventListener("click", async function() {
+
+        const email = document.getElementById("loginEmail").value.trim();
+
+        if (!email) {
+            alert("Please enter your email address first.");
+            return;
+        }
+
+        const { error } = await teamworkSupabase.auth.resetPasswordForEmail(email, {
+            redirectTo: "https://muniinajamestech.github.io/2015twg-savings-management/"
+        });
+
+        if (error) {
+            alert("Password reset failed: " + error.message);
+        } else {
+            alert("Password reset instructions have been sent to your email.");
+        }
+
+    });
+
+}
+
+// ======================================================
 // LOGOUT FUNCTION
 // ======================================================
 
