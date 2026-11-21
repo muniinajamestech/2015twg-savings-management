@@ -3448,8 +3448,6 @@ resetPasswordForm.addEventListener("submit", async function(event) {
 // FORGOT PASSWORD FUNCTION
 // ======================================================
 
-if (forgotPasswordBtn) {
-
     forgotPasswordBtn.addEventListener("click", async function() {
 
         const email = document.getElementById("loginEmail").value.trim();
