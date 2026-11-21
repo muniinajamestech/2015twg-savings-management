@@ -3383,7 +3383,7 @@ forgotPasswordBtn.addEventListener("click", async function() {
 
     const { error } =
         await teamworkSupabase.auth.resetPasswordForEmail(email, {
-            redirectTo:redirectTo: "https://muniinajamestech.github.io/2015twg-savings-management/"
+            redirectTo: "https://muniinajamestech.github.io/2015twg-savings-management/"
         });
 
     if (error) {
